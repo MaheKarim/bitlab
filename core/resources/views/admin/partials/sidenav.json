@@ -32,6 +32,28 @@
         "route_name": "admin.receive.history",
         "menu_active": "admin.receive.history"
     },
+    "send_history": {
+        "title": "Send History",
+        "icon": "las la-paper-plane",
+        "route_name": ["admin.send.history","admin.send.failed.history","admin.send.pending.history"],
+        "menu_active": "admin.send*",
+        "submenu": [{
+            "keyword": ["Completed History", "Send History"],
+            "title": "Completed",
+            "route_name": "admin.send.history",
+            "menu_active": "admin.send.history*"
+        }, {
+            "keyword": ["Failed History", "Send History"],
+            "title": "Failed",
+            "route_name": "admin.send.failed.history",
+            "menu_active": "admin.send.failed*"
+        }, {
+            "keyword": ["Pending History", "Send History"],
+            "title": "Pending",
+            "route_name": "admin.send.pending.history",
+            "menu_active": "admin.send.pending*"
+        }]
+    },
     "manage_users": {
         "title": "Manage Users",
         "icon": "las la-users",

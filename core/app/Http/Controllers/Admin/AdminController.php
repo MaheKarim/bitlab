@@ -383,7 +383,7 @@ class AdminController extends Controller
     {
         $pageTitle = 'Receive History';
         $emptyMessage = 'Data Not Found';
-        $logs = Transaction::where('trx_type', '+')->latest()->with('wallet', 'user')->paginate(getPaginate());
+        $logs = Transaction::where('trx_type', '+')->searchable(['user:username'])->latest()->with('wallet', 'user')->paginate(getPaginate());
         return view('admin.history.receive_history',compact('pageTitle', 'emptyMessage', 'logs'));
     }
 
