@@ -9,21 +9,10 @@ trait UserNotify
         return [
             'allUsers'              => 'All Users',
             'selectedUsers'         => 'Selected Users',
-            'kycUnverified'         => 'Kyc Unverified Users',
-            'kycVerified'           => 'Kyc Verified Users',
-            'kycPending'            => 'Kyc Pending Users',
             'withBalance'           => 'With Balance Users',
             'emptyBalanceUsers'     => 'Empty Balance Users',
             'twoFaDisableUsers'     => '2FA Disable User',
             'twoFaEnableUsers'      => '2FA Enable User',
-            'hasDepositedUsers'       => 'Deposited Users',
-            'notDepositedUsers'       => 'Not Deposited Users',
-            'pendingDepositedUsers'   => 'Pending Deposited Users',
-            'rejectedDepositedUsers'  => 'Rejected Deposited Users',
-            'topDepositedUsers'     => 'Top Deposited Users',
-            'hasWithdrawUsers'      => 'Withdraw Users',
-            'pendingWithdrawUsers'  => 'Pending Withdraw Users',
-            'rejectedWithdrawUsers' => 'Rejected Withdraw Users',
             'pendingTicketUser'     => 'Pending Ticket Users',
             'answerTicketUser'      => 'Answer Ticket Users',
             'closedTicketUser'      => 'Closed Ticket Users',
@@ -54,64 +43,6 @@ trait UserNotify
     public function scopeTwoFaEnableUsers($query)
     {
         return $query->where('ts', Status::ENABLE);
-    }
-
-    public function scopeHasDepositedUsers($query)
-    {
-        return $query->whereHas('deposits', function ($deposit) {
-            $deposit->successful();
-        });
-    }
-
-    public function scopeNotDepositedUsers($query)
-    {
-        return $query->whereDoesntHave('deposits', function ($q) {
-            $q->successful();
-        });
-    }
-
-    public function scopePendingDepositedUsers($query)
-    {
-        return $query->whereHas('deposits', function ($deposit) {
-            $deposit->pending();
-        });
-    }
-
-    public function scopeRejectedDepositedUsers($query)
-    {
-        return $query->whereHas('deposits', function ($deposit) {
-            $deposit->rejected();
-        });
-    }
-
-    public function scopeTopDepositedUsers($query)
-    {
-        return $query->whereHas('deposits', function ($deposit) {
-            $deposit->successful();
-        })->withSum(['deposits'=>function($q){
-            $q->successful();
-        }], 'amount')->orderBy('deposits_sum_amount', 'desc')->take(request()->number_of_top_deposited_user ?? 10);
-    }
-
-    public function scopeHasWithdrawUsers($query)
-    {
-        return $query->whereHas('withdrawals', function ($q) {
-            $q->approved();
-        });
-    }
-
-    public function scopePendingWithdrawUsers($query)
-    {
-        return $query->whereHas('withdrawals', function ($q) {
-            $q->pending();
-        });
-    }
-
-    public function scopeRejectedWithdrawUsers($query)
-    {
-        return $query->whereHas('withdrawals', function ($q) {
-            $q->rejected();
-        });
     }
 
     public function scopePendingTicketUser($query)
