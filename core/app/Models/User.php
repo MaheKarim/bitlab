@@ -49,7 +49,6 @@ class User extends Authenticatable
         return $this->hasMany(UserLogin::class);
     }
 
-
     public function transactions()
     {
         return $this->hasMany(Transaction::class)->orderBy('id','desc');
@@ -59,7 +58,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(SupportTicket::class);
     }
-
 
     public function fullname(): Attribute
     {
@@ -94,11 +92,6 @@ class User extends Authenticatable
     public function scopeMobileUnverified($query)
     {
         return $query->where('sv', Status::UNVERIFIED);
-    }
-
-    public function scopeKycUnverified($query)
-    {
-        return $query->where('kv', Status::KYC_UNVERIFIED);
     }
 
     public function scopeEmailVerified($query)

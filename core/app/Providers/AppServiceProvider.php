@@ -7,6 +7,7 @@ use App\Lib\Searchable;
 use App\Models\AdminNotification;
 use App\Models\Deposit;
 use App\Models\Frontend;
+use App\Models\Send;
 use App\Models\SupportTicket;
 use App\Models\User;
 use App\Models\Withdrawal;
@@ -54,18 +55,20 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('admin.partials.sidenav', function ($view) {
             $view->with([
-                'bannedUsersCount'           => User::banned()->count(),
-                'emailUnverifiedUsersCount' => User::emailUnverified()->count(),
-                'mobileUnverifiedUsersCount'   => User::mobileUnverified()->count(),
-                'pendingTicketCount'         => SupportTicket::whereIN('status', [Status::TICKET_OPEN, Status::TICKET_REPLY])->count(),
-                'updateAvailable'    => version_compare(gs('available_version'),systemDetails()['version'],'>') ? 'v'.gs('available_version') : false,
+                'bannedUsersCount'              => User::banned()->count(),
+                'emailUnverifiedUsersCount'     => User::emailUnverified()->count(),
+                'mobileUnverifiedUsersCount'    => User::mobileUnverified()->count(),
+                'pendingTicketCount'            => SupportTicket::whereIN('status', [Status::TICKET_OPEN, Status::TICKET_REPLY])->count(),
+                'sendFailedCount'              => Send::sendFailed()->count(),
+                'sendPendingCount'              => Send::sendPending()->count(),
+                'updateAvailable'               => version_compare(gs('available_version'),systemDetails()['version'],'>') ? 'v'.gs('available_version') : false,
             ]);
         });
 
         view()->composer('admin.partials.topnav', function ($view) {
             $view->with([
-                'adminNotifications' => AdminNotification::where('is_read', Status::NO)->with('user')->orderBy('id', 'desc')->take(10)->get(),
-                'adminNotificationCount' => AdminNotification::where('is_read', Status::NO)->count(),
+                'adminNotifications'        => AdminNotification::where('is_read', Status::NO)->with('user')->orderBy('id', 'desc')->take(10)->get(),
+                'adminNotificationCount'    => AdminNotification::where('is_read', Status::NO)->count(),
             ]);
         });
 

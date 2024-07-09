@@ -198,6 +198,7 @@ Route::middleware('admin')->group(function () {
         Route::get('get-keys', 'getKeys')->name('get.key');
     });
 
+
     Route::controller('GeneralSettingController')->group(function(){
 
         Route::get('system-setting', 'systemSetting')->name('setting.system');
@@ -257,7 +258,6 @@ Route::middleware('admin')->group(function () {
         Route::post('schedule/log/resolved/{id}', 'scheduleLogResolved')->name('schedule.log.resolved');
         Route::post('schedule/log/flush/{id}', 'logFlush')->name('log.flush');
     });
-
 
     //KYC setting
     Route::controller('KycController')->group(function(){

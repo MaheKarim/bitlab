@@ -243,7 +243,6 @@ class AdminController extends Controller
         return to_route('admin.profile')->withNotify($notify);
     }
 
-
     public function password()
     {
         $pageTitle = 'Password Setting';
@@ -268,7 +267,6 @@ class AdminController extends Controller
         $notify[] = ['success', 'Password changed successfully.'];
         return to_route('admin.password')->withNotify($notify);
     }
-
 
     public function notifications(){
         $notifications = AdminNotification::orderBy('id','desc')->with('user')->paginate(getPaginate());
@@ -368,7 +366,6 @@ class AdminController extends Controller
         header("Content-Type: " . $mimetype);
         return readfile($filePath);
     }
-
 
     public function totalWallet()
     {

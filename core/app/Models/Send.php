@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Constants\Status;
 use Illuminate\Database\Eloquent\Model;
 
 class Send extends Model
@@ -13,5 +13,16 @@ class Send extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    // Scope
+    public function scopeSendFailed($query)
+    {
+        return $query->where('status', Status::FAILED);
+    }
+
+    public function scopeSendPending($query)
+    {
+        return $query->where('status', Status::PENDING);
     }
 }

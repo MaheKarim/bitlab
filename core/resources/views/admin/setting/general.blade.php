@@ -16,13 +16,13 @@
                             <div class="col-xl-3 col-sm-6">
                                 <div class="form-group ">
                                     <label>@lang('Currency')</label>
-                                    <input class="form-control" type="text" name="cur_text" required value="{{gs('cur_text')}}">
+                                    <input class="form-control" type="text" name="cur_text" required value="{{gs('cur_text')}}" disabled>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-sm-6">
                                 <div class="form-group ">
                                     <label>@lang('Currency Symbol')</label>
-                                    <input class="form-control" type="text" name="cur_sym" required value="{{gs('cur_sym')}}">
+                                    <input class="form-control" type="text" name="cur_sym" required value="{{gs('cur_sym')}}" disabled>
                                 </div>
                             </div>
                             <div class="form-group col-xl-3 col-sm-6">

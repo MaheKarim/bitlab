@@ -35,6 +35,7 @@
     "send_history": {
         "title": "Send History",
         "icon": "las la-paper-plane",
+        "counters": ["sendFailedCount", "sendPendingCount"],
         "route_name": ["admin.send.history","admin.send.failed.history","admin.send.pending.history"],
         "menu_active": "admin.send*",
         "submenu": [{
@@ -43,21 +44,23 @@
             "route_name": "admin.send.history",
             "menu_active": "admin.send.history*"
         }, {
-            "keyword": ["Failed History", "Send History"],
-            "title": "Failed",
-            "route_name": "admin.send.failed.history",
-            "menu_active": "admin.send.failed*"
-        }, {
             "keyword": ["Pending History", "Send History"],
             "title": "Pending",
             "route_name": "admin.send.pending.history",
-            "menu_active": "admin.send.pending*"
+            "menu_active": "admin.send.pending*",
+            "counter": "sendPendingCount"
+        }, {
+            "keyword": ["Failed History", "Send History"],
+            "title": "Failed",
+            "route_name": "admin.send.failed.history",
+            "menu_active": "admin.send.failed*",
+            "counter": "sendFailedCount"
         }]
     },
     "manage_users": {
         "title": "Manage Users",
         "icon": "las la-users",
-        "counters": ["bannedUsersCount", "emailUnverifiedUsersCount", "mobileUnverifiedUsersCount", "kycUnverifiedUsersCount", "kycPendingUsersCount"],
+        "counters": ["bannedUsersCount", "emailUnverifiedUsersCount", "mobileUnverifiedUsersCount"],
         "menu_active": "admin.users*",
         "submenu": [{
                 "keyword": ["active users", "Manage Users", "User management", "User control", "User status", "User activity", "User analytics"],
@@ -85,20 +88,6 @@
                 "route_name": "admin.users.mobile.unverified",
                 "menu_active": "admin.users.mobile.unverified",
                 "counter": "mobileUnverifiedUsersCount"
-            },
-            {
-                "keyword": ["kyc unverified users", "Manage Users", "User verification", "User authentication", "User management"],
-                "title": "KYC Unverified",
-                "route_name": "admin.users.kyc.unverified",
-                "menu_active": "admin.users.kyc.unverified",
-                "counter": "kycUnverifiedUsersCount"
-            },
-            {
-                "keyword": ["kyc pending users", "Manage Users", "User verification", "User authentication", "User management"],
-                "title": "KYC Pending",
-                "route_name": "admin.users.kyc.pending",
-                "menu_active": "admin.users.kyc.pending",
-                "counter": "kycPendingUsersCount"
             },
             {
                 "keyword": ["with balance users", "Manage Users", "User management", "User activity", "Account management"],
@@ -195,7 +184,6 @@
             "admin.language.manage",
             "admin.language.key",
             "admin.seo",
-            "admin.kyc.setting",
             "admin.frontend.templates",
             "admin.frontend.manage.*",
             "admin.maintenance.mode",
@@ -213,9 +201,7 @@
             "admin.setting.notification.template.edit",
             "admin.frontend.index",
             "admin.frontend.sections*",
-            "admin.gateway*",
-            "admin.withdraw.method*",
-            "admin.setting.app.purchase"
+            "admin.gateway*"
         ]
     },
     "extra": {
