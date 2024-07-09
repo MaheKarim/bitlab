@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use App\Constants\Status;
+use App\Traits\GlobalStatus;
 use Illuminate\Database\Eloquent\Model;
 
 class Send extends Model
 {
+    use GlobalStatus;
     public function wallet(){
         return $this->belongsTo(UserWallet::class);
     }

@@ -4,40 +4,74 @@
     <div class="row">
         <div class="col-12">
             <div class="row gy-4">
-
-                <div class="col-xxl-4 col-sm-6">
+                <div class="col-xxl-6 col-sm-6">
                     <x-widget
-                        style="7"
-                        link="{{ route('admin.report.transaction',$user->id) }}"
-                        title="Balance"
+                        style="3"
+                        title="{{ gs('cur_text') }} Balance"
+                        icon="lab la-bitcoin"
+                        value="{{ $countWallet }}"
+                        bg="1"
+                        type="2"
+                    />
+                </div>
+
+
+                <div class="col-xxl-6 col-sm-6">
+                    <x-widget
+                        style="3"
+                        title="USD Balance"
+                        icon="las la-dollar-sign"
+                        value="{{ $totalTransaction }}"
+                        bg="4"
+                        type="3"
+                    />
+                </div>
+            </div>
+            <div class="row py-4">
+                <div class="col-xxl-3 col-sm-6">
+                    <x-widget
+                        style="6"
+                        link="{{ route('admin.users.wallet',$user->id) }}"
+                        title="Total Wallet"
                         icon="las la-money-bill-wave-alt"
-                        value="{{ showAmount($user->balance) }}"
+                        value="{{ $countWallet }}"
                         bg="indigo"
                         type="2"
                     />
                 </div>
 
 
-                <div class="col-xxl-4 col-sm-6">
+                <div class="col-xxl-3 col-sm-6">
                     <x-widget
-                        style="7"
-                        link="{{ route('admin.deposit.list',$user->id) }}"
-                        title="Deposits"
+                        style="6"
+                        link="{{ route('admin.users.transactions', $user->id) }}"
+                        title="Transactions"
                         icon="las la-wallet"
-                        value="{{ showAmount($totalDeposit) }}"
+                        value="{{ $totalTransaction }}"
                         bg="8"
                         type="2"
                     />
                 </div>
 
 
-                <div class="col-xxl-4 col-sm-6">
+                <div class="col-xxl-3 col-sm-6">
                     <x-widget
-                        style="7"
-                        link="{{ route('admin.report.transaction',$user->id) }}"
-                        title="Transactions"
+                        style="6"
+                        link="{{ route('admin.users.receive.history',$user->id) }}"
+                        title="Receive History"
+                        icon="las la-history"
+                        value="{{ $countTotalReceive }}"
+                        bg="1"
+                        type="2"
+                    />
+                </div>
+                <div class="col-xxl-3 col-sm-6">
+                    <x-widget
+                        style="6"
+                        link="{{ route('admin.users.send.history',$user->id) }}"
+                        title="Send History"
                         icon="las la-exchange-alt"
-                        value="{{ $totalTransaction }}"
+                        value="{{ $countTotalSend }}"
                         bg="17"
                         type="2"
                     />
@@ -165,7 +199,7 @@
                             </div>
 
 
-                            <div class="col-xl-4 col-md-6 col-12">
+                            <div class="col-xl-3 col-md-6 col-12">
                                 <div class="form-group">
                                     <label>@lang('Email Verification')</label>
                                     <input type="checkbox" data-width="100%" data-onstyle="-success" data-offstyle="-danger"
@@ -174,7 +208,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xl-4 col-md-6 col-12">
+                            <div class="col-xl-3 col-md-6 col-12">
                                 <div class="form-group">
                                     <label>@lang('Mobile Verification')</label>
                                     <input type="checkbox" data-width="100%" data-onstyle="-success" data-offstyle="-danger"
@@ -182,10 +216,17 @@
                                            @if($user->sv) checked @endif>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-12">
+                            <div class="col-xl-3 col-12">
+                                <div class="form-group">
+                                    <label>@lang('2FA Status') </label>
+                                    <input type="checkbox" data-width="100%" data-height="50" data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle" data-on="@lang('Enable')" data-off="@lang('Disable')" name="ts" @if($user->ts) checked @endif>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-12">
                                 <div class="form-group">
                                     <label>@lang('2FA Verification') </label>
-                                    <input type="checkbox" data-width="100%" data-height="50" data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle" data-on="@lang('Enable')" data-off="@lang('Disable')" name="ts" @if($user->ts) checked @endif>
+                                    <input type="checkbox" data-width="100%" data-height="50" data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle" data-on="@lang('Enable')" data-off="@lang('Disable')" name="ts" @if($user->tv) checked @endif>
                                 </div>
                             </div>
 

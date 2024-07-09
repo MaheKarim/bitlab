@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Deposit;
 use App\Models\NotificationLog;
 use App\Models\NotificationTemplate;
+use App\Models\Send;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Models\UserWallet;
 use App\Models\Withdrawal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,27 +46,12 @@ class ManageUsersController extends Controller
         return view('admin.users.list', compact('pageTitle', 'users'));
     }
 
-    public function kycUnverifiedUsers()
-    {
-        $pageTitle = 'KYC Unverified Users';
-        $users = $this->userData('kycUnverified');
-        return view('admin.users.list', compact('pageTitle', 'users'));
-    }
-
-    public function kycPendingUsers()
-    {
-        $pageTitle = 'KYC Pending Users';
-        $users = $this->userData('kycPending');
-        return view('admin.users.list', compact('pageTitle', 'users'));
-    }
-
     public function emailVerifiedUsers()
     {
         $pageTitle = 'Email Verified Users';
         $users = $this->userData('emailVerified');
         return view('admin.users.list', compact('pageTitle', 'users'));
     }
-
 
     public function mobileUnverifiedUsers()
     {
@@ -73,7 +60,6 @@ class ManageUsersController extends Controller
         return view('admin.users.list', compact('pageTitle', 'users'));
     }
 
-
     public function mobileVerifiedUsers()
     {
         $pageTitle = 'Mobile Verified Users';
@@ -81,14 +67,12 @@ class ManageUsersController extends Controller
         return view('admin.users.list', compact('pageTitle', 'users'));
     }
 
-
     public function usersWithBalance()
     {
         $pageTitle = 'Users with Balance';
         $users = $this->userData('withBalance');
         return view('admin.users.list', compact('pageTitle', 'users'));
     }
-
 
     protected function userData($scope = null){
         if ($scope) {
@@ -99,57 +83,22 @@ class ManageUsersController extends Controller
         return $users->searchable(['username','email'])->orderBy('id','desc')->paginate(getPaginate());
     }
 
-
     public function detail($id)
     {
         $user = User::findOrFail($id);
         $pageTitle = 'User Detail - '.$user->username;
 
-        $totalDeposit = Deposit::where('user_id',$user->id)->successful()->sum('amount');
-        $totalWithdrawals = Withdrawal::where('user_id',$user->id)->approved()->sum('amount');
+        $countTotalSend = Send::where('user_id', $id)->count();
+        $countTotalReceive = Transaction::where('user_id', $id)->where('trx_type', '+')->count();
+
+        $wallets = UserWallet::where('user_id', $user->id)->latest()->get();
+        $btcBalance = UserWallet::where('user_id', $user->id)->sum('balance');
+        $countWallet = UserWallet::where('user_id', $user->id)->count();
+
         $totalTransaction = Transaction::where('user_id',$user->id)->count();
         $countries = json_decode(file_get_contents(resource_path('views/partials/country.json')));
-        return view('admin.users.detail', compact('pageTitle', 'user','totalDeposit','totalWithdrawals','totalTransaction','countries'));
+        return view('admin.users.detail', compact('pageTitle', 'user','wallets','btcBalance','countWallet','countTotalSend','countTotalReceive','totalTransaction','countries'));
     }
-
-
-    public function kycDetails($id)
-    {
-        $pageTitle = 'KYC Details';
-        $user = User::findOrFail($id);
-        return view('admin.users.kyc_detail', compact('pageTitle','user'));
-    }
-
-    public function kycApprove($id)
-    {
-        $user = User::findOrFail($id);
-        $user->kv = Status::KYC_VERIFIED;
-        $user->save();
-
-        notify($user,'KYC_APPROVE',[]);
-
-        $notify[] = ['success','KYC approved successfully'];
-        return to_route('admin.users.kyc.pending')->withNotify($notify);
-    }
-
-    public function kycReject(Request $request,$id)
-    {
-        $request->validate([
-            'reason'=>'required'
-        ]);
-        $user = User::findOrFail($id);
-        $user->kv = Status::KYC_UNVERIFIED;
-        $user->kyc_rejection_reason = $request->reason;
-        $user->save();
-
-        notify($user,'KYC_REJECT',[
-            'reason'=>$request->reason
-        ]);
-
-        $notify[] = ['success','KYC rejected successfully'];
-        return to_route('admin.users.kyc.pending')->withNotify($notify);
-    }
-
 
     public function update(Request $request, $id)
     {
@@ -192,19 +141,6 @@ class ManageUsersController extends Controller
         $user->ev = $request->ev ? Status::VERIFIED : Status::UNVERIFIED;
         $user->sv = $request->sv ? Status::VERIFIED : Status::UNVERIFIED;
         $user->ts = $request->ts ? Status::ENABLE : Status::DISABLE;
-        if (!$request->kv) {
-            $user->kv = Status::KYC_UNVERIFIED;
-            if ($user->kyc_data) {
-                foreach ($user->kyc_data as $kycData) {
-                    if ($kycData->type == 'file') {
-                        fileManager()->removeFile(getFilePath('verify').'/'.$kycData->value);
-                    }
-                }
-            }
-            $user->kyc_data = null;
-        }else{
-            $user->kv = Status::KYC_VERIFIED;
-        }
         $user->save();
 
         $notify[] = ['success', 'User details updated successfully'];
@@ -294,7 +230,6 @@ class ManageUsersController extends Controller
         return back()->withNotify($notify);
 
     }
-
 
     public function showNotificationSingleForm($id)
     {
@@ -439,7 +374,6 @@ class ManageUsersController extends Controller
         return $this->sessionForNotification($totalUserCount, $request);
     }
 
-
     private function sessionForNotification($totalUserCount, $request)
     {
         if (session()->has('SEND_NOTIFICATION')) {
@@ -493,5 +427,60 @@ class ManageUsersController extends Controller
         $logs = NotificationLog::where('user_id',$id)->with('user')->orderBy('id','desc')->paginate(getPaginate());
         return view('admin.reports.notification_history', compact('pageTitle','logs','user'));
     }
+
+
+    public function sendHistory($id)
+    {
+        $user = User::findOrFail($id);
+        $logs = Send::where('user_id', $user->id)->latest()->with('wallet')->paginate(getPaginate());
+        $pageTitle = 'Send History of '.$user->username;
+        $emptyMessage = 'Data Not Found';
+
+        return view('admin.users.send_history', compact('pageTitle','logs', 'emptyMessage'));
+    }
+
+    public function receiveHistory($id)
+    {
+        $user = User::findOrFail($id);
+        $logs = Transaction::where('user_id', $user->id)->where('trx_type', '+')->latest()->with('wallet', 'user')->paginate(getPaginate());
+        $pageTitle = 'Receive History of '.$user->username;
+        $emptyMessage = 'Data Not Found';
+
+        return view('admin.users.receive_history', compact('pageTitle','logs', 'emptyMessage'));
+    }
+
+    public function userWallet($id)
+    {
+        $user = User::findOrFail($id);
+        $pageTitle = 'Wallet of '.$user->username;
+        $wallets = UserWallet::where('user_id', $user->id)->latest()->paginate(getPaginate());
+        $emptyMessage = 'Data Not Found';
+
+        return view('admin.users.wallet', compact('pageTitle', 'wallets', 'emptyMessage'));
+    }
+
+    public function transactions(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        if ($request->search) {
+            $search = $request->search;
+            $pageTitle = 'Search User Transactions : ' . $user->username;
+
+            $transactions = $user->transactions()->whereHas('wallet', function($query) use ($search){
+                $query->where('wallet_address', $search);
+            })->orWhere('trx', $search)->with('user', 'wallet')->orderBy('id','desc')->paginate(getPaginate());
+
+            $emptyMessage = 'No transactions';
+            return view('admin.reports.transactions', compact('pageTitle', 'search', 'user', 'transactions', 'emptyMessage'));
+        }
+
+        $pageTitle = 'User Transactions : ' . $user->username;
+        $transactions = $user->transactions()->with('user', 'wallet')->orderBy('id','desc')->paginate(getPaginate());
+        $emptyMessage = 'No transactions';
+
+        return view('admin.reports.transactions', compact('pageTitle', 'user', 'transactions', 'emptyMessage'));
+    }
+
 
 }

@@ -10,44 +10,44 @@
                         <table class="table table--light style--two">
                             <thead>
                             <tr>
-                                <th>@lang('User')</th>
                                 <th>@lang('Trx')</th>
-                                <th>@lang('Transacted')</th>
+                                <th>@lang('Date')</th>
+                                <th>@lang('Wallet Address')</th>
                                 <th>@lang('Amount')</th>
-                                <th>@lang('Post Balance')</th>
-                                <th>@lang('Detail')</th>
+                                <th>@lang('Charge')</th>
+                                <th>@lang('Status')</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($transactions as $trx)
+                            @forelse($logs as $log)
                                 <tr>
                                     <td>
-                                        <span class="font-weight-bold">{{ $trx->user->fullname }}</span>
+                                        <strong>{{ $log->trx }}</strong>
+                                    </td>
+
+                                    <td>
+                                        {{ showDateTime($log->created_at) }} <br> {{ diffForHumans($log->created_at) }}
+                                    </td>
+
+                                    <td>
+                                        <span class="font-weight-bold text-danger" data-toggle="tooltip" data-original-title="@lang('From Wallet')"> - {{ $log->wallet->wallet_address }}</span>
                                         <br>
-                                        <span class="small"> <a href="{{ route('admin.users.detail', $trx->user_id) }}"><span>@</span>{{ $trx->user->username }}</a> </span>
+                                        <span class="font-weight-bold text-success" data-toggle="tooltip" data-original-title="@lang('To Address')"> + {{ $log->receive_wallet }}</span>
                                     </td>
 
                                     <td>
-                                        <strong>{{ $trx->trx }}</strong>
+                                        <span class="font-weight-bold">
+                                            {{showAmount($log->amount, 8)}}
+                                        </span>
                                     </td>
 
                                     <td>
-                                        {{ showDateTime($trx->created_at) }}<br>{{ diffForHumans($trx->created_at) }}
+                                        <span class="font-weight-bold text--danger">
+                                            {{showAmount($log->charge, 8)}}
+                                        </span>
                                     </td>
 
-                                    <td>
-                                    <span class="font-weight-bold @if($trx->trx_type == '+')text-success @else text-danger @endif">
-                                        {{ $trx->trx_type }} {{showAmount($trx->amount, 8)}}
-                                    </span>
-                                        <br>
-                                        <span class="font-weight-bold" data-toggle="tooltip" data-original-title="@lang('Wallet Address')">{{ $trx->wallet->wallet_address }}</span>
-                                    </td>
-
-                                    <td>
-                                        {{ showAmount($trx->post_balance, 8) }}
-                                    </td>
-
-                                    <td>{{ __($trx->details) }}</td>
+                                    <td> @php echo $log->statusBadge @endphp </td>
                                 </tr>
                             @empty
                                 <tr>
@@ -59,9 +59,9 @@
                         </table><!-- table end -->
                     </div>
                 </div>
-                @if($transactions->hasPages())
+                @if($logs->hasPages())
                     <div class="card-footer py-4">
-                        {{ paginateLinks($transactions) }}
+                        {{ paginateLinks($logs) }}
                     </div>
                 @endif
             </div><!-- card end -->
@@ -69,5 +69,4 @@
     </div>
 
 @endsection
-
 

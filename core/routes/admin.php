@@ -65,15 +65,11 @@ Route::middleware('admin')->group(function () {
         Route::get('email-verified', 'emailVerifiedUsers')->name('email.verified');
         Route::get('email-unverified', 'emailUnverifiedUsers')->name('email.unverified');
         Route::get('mobile-unverified', 'mobileUnverifiedUsers')->name('mobile.unverified');
-        Route::get('kyc-unverified', 'kycUnverifiedUsers')->name('kyc.unverified');
-        Route::get('kyc-pending', 'kycPendingUsers')->name('kyc.pending');
         Route::get('mobile-verified', 'mobileVerifiedUsers')->name('mobile.verified');
         Route::get('with-balance', 'usersWithBalance')->name('with.balance');
 
         Route::get('detail/{id}', 'detail')->name('detail');
-        Route::get('kyc-data/{id}', 'kycDetails')->name('kyc.details');
-        Route::post('kyc-approve/{id}', 'kycApprove')->name('kyc.approve');
-        Route::post('kyc-reject/{id}', 'kycReject')->name('kyc.reject');
+
         Route::post('update/{id}', 'update')->name('update');
         Route::post('add-sub-balance/{id}', 'addSubBalance')->name('add.sub.balance');
         Route::get('send-notification/{id}', 'showNotificationSingleForm')->name('notification.single');
@@ -86,6 +82,11 @@ Route::middleware('admin')->group(function () {
         Route::get('list', 'list')->name('list');
         Route::get('count-by-segment/{methodName}', 'countBySegment')->name('segment.count');
         Route::get('notification-log/{id}', 'notificationLog')->name('notification.log');
+
+        Route::get('user/send/history/{id}', 'sendHistory')->name('send.history');
+        Route::get('user/receive/history/{id}', 'receiveHistory')->name('receive.history');
+        Route::get('user/wallet/{id}', 'userWallet')->name('wallet');
+        Route::get('user/transactions/{id}', 'transactions')->name('transactions');
     });
 
     // Subscriber
