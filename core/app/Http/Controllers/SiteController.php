@@ -39,7 +39,6 @@ class SiteController extends Controller
         return view('Template::pages', compact('pageTitle','sections','seoContents','seoImage'));
     }
 
-
     public function contact()
     {
         $pageTitle = "Contact Us";
@@ -49,7 +48,6 @@ class SiteController extends Controller
         $seoImage = @$seoContents->image ? getImage(getFilePath('seo') . '/' . @$seoContents->image, getFileSize('seo')) : null;
         return view('Template::contact',compact('pageTitle','user','sections','seoContents','seoImage'));
     }
-
 
     public function contactSubmit(Request $request)
     {
@@ -115,6 +113,14 @@ class SiteController extends Controller
         return back();
     }
 
+    public function blogs()
+    {
+        $pageTitle = 'Blogs';
+        $sections = Page::where('tempname',activeTemplate())->where('slug','blogs')->first();
+
+        return view('Template::blogs',compact('pageTitle', 'sections'));
+    }
+
     public function blogDetails($slug){
         $blog = Frontend::where('slug',$slug)->where('data_keys','blog.element')->firstOrFail();
         $pageTitle = $blog->data_values->title;
@@ -122,7 +128,6 @@ class SiteController extends Controller
         $seoImage = @$seoContents->image ? frontendImage('blog',$seoContents->image,getFileSize('seo'),true) : null;
         return view('Template::blog_details',compact('blog','pageTitle','seoContents','seoImage'));
     }
-
 
     public function cookieAccept(){
         Cookie::queue('gdpr_cookie',gs('site_name') , 43200);

@@ -7,6 +7,8 @@ use App\Lib\Searchable;
 use App\Models\AdminNotification;
 use App\Models\Deposit;
 use App\Models\Frontend;
+use App\Models\Language;
+use App\Models\Page;
 use App\Models\Send;
 use App\Models\SupportTicket;
 use App\Models\User;
@@ -50,6 +52,9 @@ class AppServiceProvider extends ServiceProvider
         $viewShare['activeTemplate'] = $activeTemplate;
         $viewShare['activeTemplateTrue'] = activeTemplate(true);
         $viewShare['emptyMessage'] = 'Data not found';
+        $viewShare['language'] = Language::all();
+        $viewShare['pages'] = Page::where('tempname', activeTemplate())->where('is_default', 0)->get();
+        $viewShare['btcRate'] = gs('usd_rate');
         view()->share($viewShare);
 
 
@@ -59,7 +64,7 @@ class AppServiceProvider extends ServiceProvider
                 'emailUnverifiedUsersCount'     => User::emailUnverified()->count(),
                 'mobileUnverifiedUsersCount'    => User::mobileUnverified()->count(),
                 'pendingTicketCount'            => SupportTicket::whereIN('status', [Status::TICKET_OPEN, Status::TICKET_REPLY])->count(),
-                'sendFailedCount'              => Send::sendFailed()->count(),
+                'sendFailedCount'               => Send::sendFailed()->count(),
                 'sendPendingCount'              => Send::sendPending()->count(),
                 'updateAvailable'               => version_compare(gs('available_version'),systemDetails()['version'],'>') ? 'v'.gs('available_version') : false,
             ]);

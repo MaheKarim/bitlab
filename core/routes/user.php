@@ -60,13 +60,15 @@ Route::middleware('auth')->name('user.')->group(function () {
                 Route::post('twofactor/enable', 'create2fa')->name('twofactor.enable');
                 Route::post('twofactor/disable', 'disable2fa')->name('twofactor.disable');
 
-                //KYC
-                Route::get('kyc-form','kycForm')->name('kyc.form');
-                Route::get('kyc-data','kycData')->name('kyc.data');
-                Route::post('kyc-submit','kycSubmit')->name('kyc.submit');
+                // Wallet & History
+                Route::post('add/wallet', 'addWallet')->name('add.wallet');
+                Route::get('wallet', 'wallet')->name('wallet');
+                Route::get('send', 'sendPage')->name('send.page');
+                Route::post('send', 'send')->name('send');
+                Route::get('send/history', 'sendHistory')->name('send.history');
 
+                Route::get('receive/history', 'receiveHistory')->name('receive.history');
                 //Report
-                Route::any('deposit/history', 'depositHistory')->name('deposit.history');
                 Route::get('transactions','transactions')->name('transactions');
 
                 Route::post('add-device-token','addDeviceToken')->name('add.device.token');
@@ -80,17 +82,6 @@ Route::middleware('auth')->name('user.')->group(function () {
                 Route::post('change-password', 'submitPassword');
             });
 
-
-            // Withdraw
-            Route::controller('WithdrawController')->prefix('withdraw')->name('withdraw')->group(function(){
-                Route::middleware('kyc')->group(function(){
-                    Route::get('/', 'withdrawMoney');
-                    Route::post('/', 'withdrawStore')->name('.money');
-                    Route::get('preview', 'withdrawPreview')->name('.preview');
-                    Route::post('preview', 'withdrawSubmit')->name('.submit');
-                });
-                Route::get('history', 'withdrawLog')->name('.history');
-            });
         });
 
         // Payment
