@@ -124,9 +124,11 @@ class SiteController extends Controller
     public function blogDetails($slug){
         $blog = Frontend::where('slug',$slug)->where('data_keys','blog.element')->firstOrFail();
         $pageTitle = $blog->data_values->title;
+        $latestBlogs = Frontend::where('data_keys','blog.element')->latest()->take(10)->get();
         $seoContents = $blog->seo_content;
         $seoImage = @$seoContents->image ? frontendImage('blog',$seoContents->image,getFileSize('seo'),true) : null;
-        return view('Template::blog_details',compact('blog','pageTitle','seoContents','seoImage'));
+
+        return view('Template::blog_details',compact('blog','pageTitle','seoContents','seoImage', 'latestBlogs'));
     }
 
     public function cookieAccept(){

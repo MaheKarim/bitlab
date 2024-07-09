@@ -33,11 +33,11 @@
                 <div class="footer-widget widget-links">
                     <h5 class="title">@lang('Useful Link')</h5>
                     <ul class="links">
-{{--                        @foreach($policyPages as $singlePolicy)--}}
-{{--                            <li>--}}
-{{--                                <a href="{{ route('policy.details', ['policy'=>slug($singlePolicy->data_values->title)]) }}">{{ __($singlePolicy->data_values->title) }}</a>--}}
-{{--                            </li>--}}
-{{--                        @endforeach--}}
+                        @foreach($policyPages as $singlePolicy)
+                            <li>
+                                <a href="{{ route('policy.pages', slug($singlePolicy->data_values->title)) }}">{{ __($singlePolicy->data_values->title) }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="footer-widget widget-links">
@@ -57,7 +57,7 @@
         <div class="container">
             <div class="footer-middle-wrapper">
                 <div class="logo">
-                    <a href="{{ route('home') }}"><img src="{{getImage(getFilePath('logoIcon'))}}" alt="@lang('logo')"></a>
+                    <a href="{{ route('home') }}"><img src="{{getImage(getFilePath('logoIcon') . '/logo.png')}}" alt="@lang('logo')"></a>
                 </div>
                 <div class="cont text-white">
                     {{ __(@$footer->data_values->website_footer) }}

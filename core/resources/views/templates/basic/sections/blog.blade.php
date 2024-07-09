@@ -23,13 +23,13 @@
                 <div class="col-lg-4 col-md-6 col-sm-10">
                     <div class="post__item">
                         <div class="post__thumb">
-                            <a href="{{ route('blog.details', ['slug'=>slug($singleBlog->data_values->title), 'id'=>$singleBlog->id]) }}">
+                            <a href="{{ route('blog.details', slug($singleBlog->data_values->title)) }}">
                                 <img src="{{ getImage('assets/images/frontend/blog/' .@$singleBlog->data_values->image, '750x500') }}" alt="@lang('blog')">
                             </a>
                         </div>
                         <div class="post__content">
                             <h6 class="post__title">
-                                <a href="{{ route('blog.details', ['slug'=>slug($singleBlog->data_values->title), 'id'=>$singleBlog->id]) }}">{{ __($singleBlog->data_values->title) }}</a>
+                                <a href="{{ route('blog.details', slug($singleBlog->data_values->title)) }}">{{ __($singleBlog->data_values->title) }}</a>
                             </h6>
                             <div class="meta__date">
                                 <div class="meta__item">
@@ -41,7 +41,7 @@
                                     @lang('Admin')
                                 </div>
                             </div>
-                            <a href="{{ route('blog.details', ['slug'=>slug($singleBlog->data_values->title), 'id'=>$singleBlog->id]) }}" class="post__read">@lang('Read More') <i class="las la-long-arrow-alt-right"></i></a>
+                            <a href="{{ route('blog.details', slug($singleBlog->data_values->title)) }}" class="post__read">@lang('Read More') <i class="las la-long-arrow-alt-right"></i></a>
                         </div>
                     </div>
                 </div>

@@ -462,7 +462,6 @@ function isHtml($string)
     }
 }
 
-
 function convertToReadableSize($size) {
     preg_match('/^(\d+)([KMG])$/', $size, $matches);
     $size = (int)$matches[1];
@@ -483,11 +482,16 @@ function convertToReadableSize($size) {
     return $size.$unit;
 }
 
-
 function frontendImage($sectionName, $image, $size = null,$seo = false)
 {
     if ($seo) {
         return getImage('assets/images/frontend/' . $sectionName . '/seo/' . $image, $size);
     }
     return getImage('assets/images/frontend/' . $sectionName . '/' . $image, $size);
+}
+
+function loadFbComment()
+{
+    $comment = Extension::where('act', 'fb-comment')->where('status', Status::ENABLE)->first();
+    return  $comment ? $comment->generateScript() : '';
 }
