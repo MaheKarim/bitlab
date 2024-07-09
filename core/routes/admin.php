@@ -110,31 +110,6 @@ Route::middleware('admin')->group(function () {
         });
     });
 
-    // WITHDRAW SYSTEM
-    Route::name('withdraw.')->prefix('withdraw')->group(function(){
-
-        Route::controller('WithdrawalController')->name('data.')->group(function(){
-            Route::get('pending/{user_id?}', 'pending')->name('pending');
-            Route::get('approved/{user_id?}', 'approved')->name('approved');
-            Route::get('rejected/{user_id?}', 'rejected')->name('rejected');
-            Route::get('all/{user_id?}', 'all')->name('all');
-            Route::get('details/{id}', 'details')->name('details');
-            Route::post('approve', 'approve')->name('approve');
-            Route::post('reject', 'reject')->name('reject');
-        });
-
-
-        // Withdraw Method
-        Route::controller('WithdrawMethodController')->prefix('method')->name('method.')->group(function(){
-            Route::get('/', 'methods')->name('index');
-            Route::get('create', 'create')->name('create');
-            Route::post('create', 'store')->name('store');
-            Route::get('edit/{id}', 'edit')->name('edit');
-            Route::post('edit/{id}', 'update')->name('update');
-            Route::post('status/{id}', 'status')->name('status');
-        });
-    });
-
     // Report
     Route::controller('ReportController')->prefix('report')->name('report.')->group(function(){
         Route::get('transaction/{user_id?}', 'transaction')->name('transaction');
@@ -233,7 +208,6 @@ Route::middleware('admin')->group(function () {
         Route::post('schedule/log/resolved/{id}', 'scheduleLogResolved')->name('schedule.log.resolved');
         Route::post('schedule/log/flush/{id}', 'logFlush')->name('log.flush');
     });
-
 
     //Notification Setting
     Route::name('setting.notification.')->controller('NotificationController')->prefix('notification')->group(function(){
