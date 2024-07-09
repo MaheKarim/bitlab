@@ -81,14 +81,27 @@ class UserController extends Controller
         return back()->withNotify($notify);
     }
 
-    public function transactions()
+    public function transactions(Request $request)
     {
+        $shortBy = $request->shortBy;
+        $walletId = $request->wallet;
+
+        $trxType = $shortBy == 'Debit' ? '-' : '+';
+
+        $logs = Transaction::where('user_id', Auth::user()->id)
+            ->when(isset($shortBy), function($query) use ($trxType) {
+                $query->where('trx_type', $trxType);
+            })
+            ->when(isset($walletId), function($query2) use ($walletId) {
+                $query2->where('wallet_id', $walletId);
+            })
+            ->latest()
+            ->with('wallet')
+            ->paginate(getPaginate());
+
+        $wallets = UserWallet::where('user_id', Auth::user()->id)->latest()->get();
         $pageTitle = 'Transactions';
-        $remarks = Transaction::distinct('remark')->orderBy('remark')->get('remark');
-
-        $transactions = Transaction::where('user_id',auth()->id())->searchable(['trx'])->filter(['trx_type','remark'])->orderBy('id','desc')->paginate(getPaginate());
-
-        return view('Template::user.transactions', compact('pageTitle','transactions','remarks'));
+        return view('Template::user.transactions', compact('pageTitle','logs','wallets','walletId','shortBy'));
     }
 
     public function userData()

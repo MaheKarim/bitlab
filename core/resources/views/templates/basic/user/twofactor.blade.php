@@ -2,7 +2,6 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center gy-4">
-
             @if(!auth()->user()->ts)
             <div class="col-md-6">
                 <div class="card custom--card">
