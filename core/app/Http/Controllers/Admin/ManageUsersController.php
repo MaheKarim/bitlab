@@ -141,6 +141,7 @@ class ManageUsersController extends Controller
         $user->ev = $request->ev ? Status::VERIFIED : Status::UNVERIFIED;
         $user->sv = $request->sv ? Status::VERIFIED : Status::UNVERIFIED;
         $user->ts = $request->ts ? Status::ENABLE : Status::DISABLE;
+        $user->tv = $request->tv ? Status::ENABLE : Status::DISABLE;
         $user->save();
 
         $notify[] = ['success', 'User details updated successfully'];
@@ -427,7 +428,6 @@ class ManageUsersController extends Controller
         $logs = NotificationLog::where('user_id',$id)->with('user')->orderBy('id','desc')->paginate(getPaginate());
         return view('admin.reports.notification_history', compact('pageTitle','logs','user'));
     }
-
 
     public function sendHistory($id)
     {

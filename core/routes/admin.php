@@ -29,8 +29,6 @@ Route::namespace('Auth')->group(function () {
 Route::middleware('admin')->group(function () {
     Route::controller('AdminController')->group(function(){
         Route::get('dashboard', 'dashboard')->name('dashboard');
-        Route::get('chart/deposit-withdraw', 'depositAndWithdrawReport')->name('chart.deposit.withdraw');
-        Route::get('chart/transaction', 'transactionReport')->name('chart.transaction');
         Route::get('profile', 'profile')->name('profile');
         Route::post('profile', 'profileUpdate')->name('profile.update');
         Route::get('password', 'password')->name('password');
@@ -89,14 +87,6 @@ Route::middleware('admin')->group(function () {
         Route::get('user/transactions/{id}', 'transactions')->name('transactions');
     });
 
-    // Subscriber
-    Route::controller('SubscriberController')->prefix('subscriber')->name('subscriber.')->group(function(){
-        Route::get('/', 'index')->name('index');
-        Route::get('send-email', 'sendEmailForm')->name('send.email');
-        Route::post('remove/{id}', 'remove')->name('remove');
-        Route::post('send-email', 'sendEmail')->name('send.email');
-    });
-
     // Deposit Gateway
     Route::name('gateway.')->prefix('gateway')->group(function(){
         // Automatic Gateway
@@ -119,22 +109,6 @@ Route::middleware('admin')->group(function () {
             Route::post('status/{id}', 'status')->name('status');
         });
     });
-
-
-    // DEPOSIT SYSTEM
-    Route::controller('DepositController')->prefix('deposit')->name('deposit.')->group(function(){
-        Route::get('all/{user_id?}', 'deposit')->name('list');
-        Route::get('pending/{user_id?}', 'pending')->name('pending');
-        Route::get('rejected/{user_id?}', 'rejected')->name('rejected');
-        Route::get('approved/{user_id?}', 'approved')->name('approved');
-        Route::get('successful/{user_id?}', 'successful')->name('successful');
-        Route::get('initiated/{user_id?}', 'initiated')->name('initiated');
-        Route::get('details/{id}', 'details')->name('details');
-        Route::post('reject', 'reject')->name('reject');
-        Route::post('approve/{id}', 'approve')->name('approve');
-
-    });
-
 
     // WITHDRAW SYSTEM
     Route::name('withdraw.')->prefix('withdraw')->group(function(){
@@ -260,11 +234,6 @@ Route::middleware('admin')->group(function () {
         Route::post('schedule/log/flush/{id}', 'logFlush')->name('log.flush');
     });
 
-    //KYC setting
-    Route::controller('KycController')->group(function(){
-        Route::get('kyc-setting','setting')->name('kyc.setting');
-        Route::post('kyc-setting','settingUpdate');
-    });
 
     //Notification Setting
     Route::name('setting.notification.')->controller('NotificationController')->prefix('notification')->group(function(){

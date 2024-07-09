@@ -226,7 +226,7 @@
                             <div class="col-xl-3 col-12">
                                 <div class="form-group">
                                     <label>@lang('2FA Verification') </label>
-                                    <input type="checkbox" data-width="100%" data-height="50" data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle" data-on="@lang('Enable')" data-off="@lang('Disable')" name="ts" @if($user->tv) checked @endif>
+                                    <input type="checkbox" data-width="100%" data-height="50" data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle" data-on="@lang('Enable')" data-off="@lang('Disable')" name="tv" @if($user->tv) checked @endif>
                                 </div>
                             </div>
 
