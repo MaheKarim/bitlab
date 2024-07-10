@@ -63,7 +63,7 @@
                             <a href="{{ route('user.profile.setting') }}">
                                 @if($user->image)
                                     <img
-                                        src="{{ getImage(imagePath()['profile']['user']['path'].'/'. $user->image,imagePath()['profile']['user']['size']) }}"
+                                        src="{{ getImage(getFilePath('userProfile').'/'. $user->image,getFilePath('userProfile')) }}"
                                         alt="@lang('user')">
                                 @else
                                     <img src="{{ asset($activeTemplateTrue.'images/default.png') }}"

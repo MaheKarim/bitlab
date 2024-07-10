@@ -34,11 +34,11 @@
                         </div>
                         <div class="col-md-6 mb-20">
                             <label for="email" class="form--label">@lang('Email Address')</label>
-                            <input class="form-control form--control" id="email" name="email" type="text" value="{{$user->email}}" readonly>
+                            <input class="form-control form--control" id="email" name="email" type="text" value="{{$user->email}}" readonly disabled>
                         </div>
                         <div class="col-md-6 mb-20">
                             <label for="phone" class="form--label">@lang('Mobile')</label>
-                            <input class="form-control form--control" id="phone" name="phone" type="text" value="{{$user->mobile}}" readonly>
+                            <input class="form-control form--control" id="phone" name="phone" type="text" value="{{$user->mobile}}" >
                         </div>
                         <div class="col-md-6 mb-20">
                             <label for="address" class="form--label">@lang('Address')</label>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="col-md-6 mb-20">
                             <label for="country" class="form--label">@lang('Country')</label>
-                            <input class="form-control form--control" id="country" name="country" type="text" value="{{@$user->country}}" readonly>
+                            <input class="form-control form--control" id="country" name="country" type="text" value="{{@$user->country_name}}" readonly disabled>
                         </div>
                         <div class="col-md-6 mb-20">
                             <label for="image" class="form--label">@lang('Change Image')</label>
