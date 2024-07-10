@@ -148,6 +148,7 @@
                 }
             },
             "title": "text",
+            "slug":"title",
             "description": "textarea-nic",
             "modal": false
         }

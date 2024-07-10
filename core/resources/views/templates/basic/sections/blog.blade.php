@@ -1,5 +1,5 @@
 @php
-    $blog = getContent('blog.element', true);
+    $blog = getContent('blog.content', true);
 
     if(request()->routeIs('home')){
         $blogs = getContent('blog.element', false, 3, false);
@@ -53,7 +53,6 @@
                 {{ $blogs->links() }}
             @endif
         </div>
-
     </div>
 </section>
 <!-- Blog Section -->

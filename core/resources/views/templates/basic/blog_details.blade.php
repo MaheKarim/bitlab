@@ -57,7 +57,7 @@
                             <ul>
                                 @foreach($latestBlogs as $latestBlog)
                                     <li>
-                                        <a href="{{ route('blog.details', ['slug'=>slug($latestBlog->data_values->title), 'id'=>$latestBlog->id]) }}" class="widget__post">
+                                        <a href="{{ route('blog.details', slug($latestBlog->data_values->title)) }}" class="widget__post">
                                             <div class="widget__post__thumb">
                                                 <img src="{{ getImage('assets/images/frontend/blog/' .@$latestBlog->data_values->image, '750x500') }}" alt="blog">
                                             </div>
