@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Constants\Status;
 use App\Http\Controllers\Controller;
 use App\Models\Deposit;
+use App\Models\GeneralSetting;
 use App\Models\NotificationLog;
 use App\Models\NotificationTemplate;
 use App\Models\Send;
@@ -157,7 +158,13 @@ class ManageUsersController extends Controller
         ]);
 
         $user = User::findOrFail($id);
+        $findWallet = UserWallet::where('user_id', $user->id)->where('wallet_address', $request->wallet_address)->first();
+        if (!$findWallet) {
+            $notify[] = ['error', 'Invalid wallet address'];
+            return back()->withNotify($notify);
+        }
         $amount = $request->amount;
+        $general = GeneralSetting::first(['cur_text','cur_sym']);
         $trx = getTrx();
 
         $transaction = new Transaction();

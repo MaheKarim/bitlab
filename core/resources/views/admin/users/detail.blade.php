@@ -257,6 +257,17 @@
                     @csrf
                     <input type="hidden" name="act">
                     <div class="modal-body">
+                        <div class="form-group ">
+                            <label for="wallet_address">@lang('Select Wallet')</label>
+                            <select name="wallet_address" id="wallet_address" class="form-control" required>
+                                <option value="">@lang('Please Select One')</option>
+                                @foreach($wallets as $wallet)
+                                    <option value="{{ $wallet->wallet_address }}">
+                                        {{ __($wallet->name) }} {{ $wallet->name ? '-' : null }} {{ __($wallet->wallet_address) }} ( {{ showAmount($wallet->balance, 8) }})
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label>@lang('Amount')</label>
                             <div class="input-group">
