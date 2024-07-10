@@ -1,5 +1,5 @@
 @php
-    $blog = getContent('blog.content', true);
+    $blog = getContent('blog.element', true);
 
     if(request()->routeIs('home')){
         $blogs = getContent('blog.element', false, 3, false);

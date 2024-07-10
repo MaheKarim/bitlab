@@ -28,6 +28,7 @@
     },
     "receive_history": {
         "title": "Receive History",
+        "keyword": ["Receive History"],
         "icon": "las la-history",
         "route_name": "admin.receive.history",
         "menu_active": "admin.receive.history"

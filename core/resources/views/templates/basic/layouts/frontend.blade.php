@@ -77,10 +77,12 @@
     </div>
     <!-- cookies dark version end -->
 @endif
-
+@php
+    $favicon = getImage(getFilePath('logoIcon') .'/favicon.png');
+@endphp
 <!-- Particles Js -->
 <script src="{{asset($activeTemplateTrue.'js/particles.min.js')}}"></script>
-{{--<script src="{{asset($activeTemplateTrue.'js/particles.php?favicon='.$favicon) }}"></script>--}}
+<script src="{{asset($activeTemplateTrue.'js/particles.php?favicon='.$favicon) }}"></script>
 <!-- Particles Js -->
 
 <script>

@@ -146,7 +146,7 @@
 
     <!-- Particles Js -->
 <script src="{{asset($activeTemplateTrue.'js/particles.min.js')}}"></script>
-{{--<script src="{{asset($activeTemplateTrue.'js/particles.php?favicon='.$favicon) }}"></script>--}}
+<script src="{{asset($activeTemplateTrue.'js/particles.php?favicon='.$favicon) }}"></script>
 <!-- Particles Js -->
 
 <script>
