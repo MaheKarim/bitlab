@@ -6,8 +6,9 @@ use App\Constants\Status;
 use App\Http\Controllers\Controller;
 use App\Lib\FormProcessor;
 use App\Lib\GoogleAuthenticator;
+use App\Models\AdminNotification;
 use App\Models\DeviceToken;
-use App\Models\Form;
+use App\Models\GeneralSetting;
 use App\Models\Send;
 use App\Models\Transaction;
 use App\Models\UserWallet;
@@ -209,4 +210,124 @@ class UserController extends Controller
         return readfile($filePath);
     }
 
+    public function wallet()
+    {
+        $pageTitle = 'Wallet';
+        $user = Auth::user();
+        $wallets  = UserWallet::where('user_id', $user->id)->latest()->paginate(getPaginate());
+
+        return view('Template::user.wallet', compact('pageTitle', 'wallets'));
+    }
+
+    public function sendPage(){
+        $pageTitle = 'Send Balance';
+        $user = Auth::user();
+        $wallets  = UserWallet::where('user_id', $user->id)->latest()->paginate(getPaginate());
+        return view('Template::user.send', compact('pageTitle', 'wallets'));
+    }
+
+    public function send(Request $request){
+
+        $request->validate([
+            'send_wallet'=> 'required|max:255|not-in:'.$request->wallet_address,
+            'btc_amount'=> 'required|numeric|gt:0',
+            'wallet_address' => [     // From Wallet Address
+                Rule::exists('user_wallets')->where(function ($query) use ($request) {
+                    return $query->where('wallet_address', $request->wallet_address)
+                        ->where('user_id', Auth::user()->id);
+                }),
+            ]
+        ]);
+
+        $general = GeneralSetting::first();
+
+        $charge = $general->fixed_charge + ($request->btc_amount * $general->percent_charge / 100);
+        $requiredBalance = $request->btc_amount + $charge;
+
+        $user = Auth::user();
+        $findWallet = UserWallet::where('user_id', $user->id)->where('wallet_address', $request->wallet_address)->first();
+
+        if($findWallet->balance < $requiredBalance){
+            $notify[] = ['error', 'Sorry, Insufficient Balance'];
+            return back()->withNotify($notify);
+        }
+
+        if ($user->ts) {
+            $response = verifyG2fa($user, $request->authenticator_code);
+            if (!$response) {
+                $notify[] = ['error', 'Wrong verification code'];
+                return back()->withNotify($notify);
+            }
+        }
+
+        $send = new Send();
+        $send->user_id = $user->id;
+        $send->wallet_id = $findWallet->id; // Send Wallet Address
+        $send->receive_wallet = $request->send_wallet;
+        $send->amount = $request->btc_amount;
+        $send->charge = $charge;
+        $send->status = 0;
+        $send->trx = getTrx();
+        $send->save();
+
+        $findWallet->balance -= $requiredBalance;
+        $findWallet->save();
+
+        $transaction = new Transaction();
+        $transaction->user_id = $user->id;
+        $transaction->wallet_id = $findWallet->id;
+        $transaction->amount = $request->btc_amount;
+        $transaction->post_balance = $findWallet->balance;
+        $transaction->charge = $charge;
+        $transaction->trx_type = '-';
+        $transaction->details = 'Send '.$request->btc_amount.' '.gs('cur_text').' To '.$request->send_wallet;
+        $transaction->trx = $send->trx;
+        $transaction->save();
+
+        notify($user, 'BAL_SEND', [
+
+            'trx' => $transaction->trx,
+            'amount' => showAmount($request->btc_amount, 8),
+            'currency' => $general->cur_text,
+            'post_balance' => showAmount($findWallet->balance, 8),
+            'wallet' => $findWallet->wallet_address,
+            'wallet_name' => $findWallet->name ?? 'N/A'
+        ]);
+
+        $adminNotification = new AdminNotification();
+        $adminNotification->user_id = $user->id;
+        $adminNotification->title = $user->username.' has sent '.$request->btc_amount.' '.gs('cur_text').' To '.$request->send_wallet;
+        $adminNotification->click_url = urlPath('admin.users.send.history',$user->id);
+        $adminNotification->save();
+
+        $notify[] = ['success', $request->btc_amount.' '.$general->cur_text.' will send within few minutes'];
+        return redirect()->route('user.send.history')->withNotify($notify);
+    }
+
+    public function sendHistory()
+    {
+        $pageTitle = 'Send History';
+        $logs  = Send::where('user_id', Auth::user()->id)->latest()->with('wallet')->paginate(getPaginate());
+
+        return view('Template::user.send_history', compact('pageTitle', 'logs'));
+    }
+
+    public function receiveHistory(Request $request){
+
+        $walletId = $request->wallet;
+
+        $logs = Transaction::where('user_id', Auth::user()->id)
+            ->when(isset($walletId), function($query2) use ($walletId) {
+                $query2->where('wallet_id', $walletId);
+            })
+            ->where('trx_type', '+')
+            ->latest()
+            ->with('wallet')
+            ->paginate(getPaginate());
+
+        $wallets = UserWallet::where('user_id', Auth::user()->id)->latest()->get();
+
+        $pageTitle = 'Transaction History';
+        return view('Template::user.receive_history', compact('pageTitle', 'logs', 'wallets', 'walletId'));
+    }
 }
