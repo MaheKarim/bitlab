@@ -1,8 +1,8 @@
 @extends($activeTemplate.'layouts.'.$layout)
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 p-4">
+    <div class="col-xl-9">
+        <div class="row g-4">
+{{--            <div class="col-md-12 p-4">--}}
                 <div class="card custom--card">
                     <div class="card-header card-header-bg d-flex flex-wrap justify-content-between align-items-center">
                         <h5 class="text-white mt-0">

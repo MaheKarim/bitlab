@@ -1,8 +1,7 @@
 @extends($activeTemplate.'layouts.master')
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-12">
+    <div class="col-xl-9">
+        <div class="row g-4">
                 <div class="text-end">
                     <a href="{{route('ticket.open') }}" class="btn btn-sm btn--base mb-2"> <i class="fas fa-plus"></i> @lang('New Ticket')</a>
                 </div>

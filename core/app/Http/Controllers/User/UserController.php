@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Constants\Status;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Gateway\Chainso\Chainso;
 use App\Lib\FormProcessor;
 use App\Lib\GoogleAuthenticator;
 use App\Models\AdminNotification;
@@ -330,4 +331,48 @@ class UserController extends Controller
         $pageTitle = 'Transaction History';
         return view('Template::user.receive_history', compact('pageTitle', 'logs', 'wallets', 'walletId'));
     }
+
+    public function addWallet(Request $request){
+
+        $request->validate([
+            'name' => [
+                'sometimes',
+                Rule::unique('user_wallets')->where(function ($query) use($request) {
+                    return $query->where('user_id', Auth::user()->id)
+                        ->where('name', $request->name);
+                }),
+            ]
+        ]);
+
+        $user = Auth::user();
+        $general = GeneralSetting::first();
+        $wallet = UserWallet::where('user_id', $user->id)->count();
+
+        if($wallet >= gs('wallet_limit')){
+            $notify[] = ['error', 'Sorry, you can not add more than '.gs('wallet_limit').' wallet'];
+            return back()->withNotify($notify);
+        }
+
+        try{
+            $apiKey = $general->api;
+            $version = $general->api_version;
+            $pin =  $general->pin;
+            $block_io = new Chainso($apiKey, $pin, $version);
+            $response = $block_io->get_new_address();
+        }catch(\Exception $ex){
+            $notify[] = ['error', $ex->getMessage()];
+            return back()->withNotify($notify);
+        }
+
+        $wallet = new UserWallet();
+        $wallet->user_id = $user->id;
+        $wallet->name = $request->name;
+        $wallet->coin_code = 'BTC';
+        $wallet->wallet_address = $response->data->address;
+        $wallet->save();
+
+        $notify[] = ['success', 'New wallet added successfully'];
+        return back()->withNotify($notify);
+    }
+
 }

@@ -1,9 +1,9 @@
 @extends($activeTemplate.'layouts.master')
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center gy-4">
+    <div class="col-xl-9">
+        <div class="row g-4">
             @if(!auth()->user()->ts)
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="card custom--card">
                     <div class="card-header">
                         <h5 class="card-title">@lang('Add Your Account')</h5>
@@ -31,10 +31,9 @@
                     </div>
                 </div>
             </div>
-
             @endif
 
-            <div class="col-md-6">
+            <div class="col-md-5">
 
                 @if(auth()->user()->ts)
                     <div class="card custom--card">
@@ -49,7 +48,7 @@
                                     <label class="form-label">@lang('Google Authenticator OTP')</label>
                                     <input type="text" class="form-control form--control" name="code" required>
                                 </div>
-                                <button type="submit" class="btn btn--base w-100">@lang('Submit')</button>
+                                <button type="submit" class="btn btn--base w-100 mt-3">@lang('Submit')</button>
                             </div>
                         </form>
                     </div>
@@ -66,7 +65,7 @@
                                     <label class="form-label">@lang('Google Authenticator OTP')</label>
                                     <input type="text" class="form-control form--control" name="code" required>
                                 </div>
-                                <button type="submit" class="btn btn--base w-100">@lang('Submit')</button>
+                                <button type="submit" class="btn btn--base w-100 mt-3">@lang('Submit')</button>
                             </div>
                         </form>
                     </div>
@@ -81,6 +80,9 @@
 <style>
     .copied::after {
         background-color: #{{ gs('base_color') }};
+    }
+    .card-title{
+        color: #ffffff;
     }
 </style>
 @endpush
