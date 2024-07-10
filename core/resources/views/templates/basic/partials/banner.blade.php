@@ -25,12 +25,14 @@
     </section>
     <!-- Banner -->
 @else
-    <div class="hero-section gradient--bg bg_img {{ request()->routeIs('about') ? 'hero-about' : null }}" data-background="{{ getImage('assets/images/frontend/banner/' .@$banner->data_values->image, '1920x1080') }}">
-        <div class="container">
-            <div class="hero-content">
-                <h3 class="title text--white">{{ __(@$pageTitle) }}</h3>
+    @if(!gs('maintenance_mode'))
+        <div class="hero-section gradient--bg bg_img {{ request()->routeIs('about') ? 'hero-about' : null }}" data-background="{{ getImage('assets/images/frontend/banner/' .@$banner->data_values->image, '1920x1080') }}">
+            <div class="container">
+                <div class="hero-content">
+                    <h3 class="title text--white">{{ __(@$pageTitle) }}</h3>
+                </div>
             </div>
+            <div class="particles-js" id="particles-js"></div>
         </div>
-        <div class="particles-js" id="particles-js"></div>
-    </div>
+    @endif
 @endif
