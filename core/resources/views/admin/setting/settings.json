@@ -34,13 +34,6 @@
         "icon": "las la-bell",
         "route_name": "admin.setting.notification.global.email"
     },
-    "payment_gateways": {
-        "keyword": ["automatic", "manual", "configure payment gateways","aamarpay","amarpay","authorize","autorize.net","btcpay","btc pay","binance","blockchain","cashmaal","checkout","coinbase commerce","coingate","coinpayments","flutterwave","instamojo","mercado pago","mollie","nmi","now payments","nowpayments","payeer","paypal","paystack","paytm","perfect money","perfectmoney","razorpay","skrill","sslcommerz","stripe","twocheckout","two checkout","2checkout"],
-        "title": "Payment Gateways",
-        "subtitle": "Configure automatic or manual payment gateways to accept payment from users.",
-        "icon": "las la-credit-card",
-        "route_name": "admin.gateway.automatic.index"
-    },
     "seo_configuration": {
         "keyword": ["SEO", "meta title", "meta description", "meta keywords","optimization", "meta tags", "SEO configuration"],
         "title": "SEO Configuration",

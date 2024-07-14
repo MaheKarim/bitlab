@@ -58,11 +58,6 @@ class FileInfo
             'path' => 'assets/images/language',
             'size' => '50x50'
         ];
-        $data['gateway'] = [
-            'path' => 'assets/images/gateway',
-            'size' => ''
-        ];
-
         $data['pushConfig'] = [
             'path'      => 'assets/admin',
         ];
