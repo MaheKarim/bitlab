@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="form-label">@lang('Priority')</label>
-                                    <select name="priority" class="form-select form--control select2-basic" data-minimum-results-for-search="-1" required>
+                                    <select name="priority" class="form-select form--control select2" data-minimum-results-for-search="-1" required>
                                         <option value="3">@lang('High')</option>
                                         <option value="2">@lang('Medium')</option>
                                         <option value="1">@lang('Low')</option>

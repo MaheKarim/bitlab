@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="59a92f95-5c87-4933-9fda-47334a54a506" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/layouts/frontend.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/layouts/frontend.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/partials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/partials/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/templates/basic/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/templates/basic/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/templates/basic/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/templates/basic/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Http/Controllers/Admin/SubscriberController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/profile_setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/profile_setting.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/support/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/support/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -394,7 +397,7 @@
       <workItem from="1720872996696" duration="7507000" />
       <workItem from="1720938445549" duration="388000" />
       <workItem from="1720940739674" duration="35000" />
-      <workItem from="1720940800310" duration="7062000" />
+      <workItem from="1720940800310" duration="10410000" />
     </task>
     <servers />
   </component>

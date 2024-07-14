@@ -98,6 +98,12 @@
 	color: #28c76f;
 }
 
+label.required:after {
+	content: '*';
+	color: #dc3545 !important;
+	margin-left: 2px;
+}
+
 
 /*select 2 css start here*/
 .select2-container--default .select2-selection--single .select2-selection__rendered {

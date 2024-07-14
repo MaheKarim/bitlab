@@ -25,11 +25,11 @@
                     <form class="user-profile-form row mb--20 prevent-double-click" action="" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6 mb-20">
-                            <label for="firstname" class="form--label">@lang('First Name')</label>
+                            <label for="firstname" class="form--label required">@lang('First Name')</label>
                             <input class="form-control form--control" id="firstname" type="text" name="firstname" value="{{$user->firstname}}" minlength="3" required>
                         </div>
                         <div class="col-md-6 mb-20">
-                            <label for="lastname" class="form--label">@lang('Last Name')</label>
+                            <label for="lastname" class="form--label required">@lang('Last Name')</label>
                             <input class="form-control form--control" id="lastname" type="text" name="lastname" value="{{$user->lastname}}" required>
                         </div>
                         <div class="col-md-6 mb-20">

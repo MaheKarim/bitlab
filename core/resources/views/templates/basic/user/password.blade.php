@@ -6,7 +6,7 @@
             <form method="post">
                 @csrf
                 <div class="form-group">
-                    <label class="form-label">@lang('Current Password')</label>
+                    <label class="form-label" class="required">@lang('Current Password')</label>
                     <input type="password" class="form-control form--control" name="current_password" required
                            autocomplete="current-password">
                 </div>

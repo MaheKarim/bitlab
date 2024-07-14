@@ -196,6 +196,29 @@
   });
 
   /*=============== custom dropdown select js end =================*/
+  var inputElements = $('input,select,textarea');
 
+  $.each(inputElements, function (index, element) {
+    element = $(element);
+    if (!element.hasClass('profilePicUpload') && (!element.attr('id')) && element.attr('type') != 'hidden') {
+      element.closest('.form-group').find('label').attr('for',element.attr('name'));
+      element.attr('id',element.attr('name'))
+    }
+  });
+
+
+
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[title], [data-title], [data-bs-title]'))
+  tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  });
+
+  $.each($('input, select, textarea'), function (i, element) {
+
+    if (element.hasAttribute('required')) {
+      $(element).closest('.form-group').find('label').first().addClass('required');
+    }
+
+  });
 
 })(jQuery);
