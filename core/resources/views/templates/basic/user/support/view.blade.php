@@ -2,7 +2,6 @@
 @section('content')
     <div class="col-xl-9">
         <div class="row g-4">
-{{--            <div class="col-md-12 p-4">--}}
                 <div class="card custom--card">
                     <div class="card-header card-header-bg d-flex flex-wrap justify-content-between align-items-center">
                         <h5 class="text-white mt-0">
@@ -24,9 +23,9 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-9">
+                                <div class="col-md-9 ">
                                     <button type="button" class="btn btn-dark btn-sm addAttachment my-2"> <i class="fas fa-plus"></i> @lang('Add Attachment') </button>
-                                    <p class="mb-2"><span class="text--info">@lang('Max 5 files can be uploaded | Maximum upload size is '.convertToReadableSize(ini_get('upload_max_filesize')) .' | Allowed File Extensions: .jpg, .jpeg, .png, .pdf, .doc, .docx')</span></p>
+                                    <p class="my-1 fs-14"><span class="text--info">@lang('Max 5 files can be uploaded | Maximum upload size is '.convertToReadableSize(ini_get('upload_max_filesize')) .' | Allowed File Extensions: .jpg, .jpeg, .png, .pdf, .doc, .docx')</span></p>
                                     <div class="row fileUploadsContainer">
                                     </div>
                                 </div>
@@ -82,10 +81,10 @@
                                 </div>
                             @endif
                         @empty
-                        <div class="empty-message text-center">
-                            <img src="{{ asset('assets/images/empty_list.png') }}" alt="empty">
-                            <h5 class="text-muted">@lang('No replies found here!')</h5>
-                        </div>
+                            <div class="empty-message text-center">
+                                <img src="{{ asset('assets/images/empty_list.png') }}" alt="empty">
+                                <h5 class="text-muted">@lang('No replies found here!')</h5>
+                            </div>
                         @endforelse
                     </div>
                 </div>
@@ -124,7 +123,7 @@
                     <div class="col-lg-4 col-md-12 removeFileInput">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="file" name="attachments[]" class="form-control" accept=".jpeg,.jpg,.png,.pdf,.doc,.docx" required>
+                                <input type="file" name="attachments[]" class="form-control form--control" accept=".jpeg,.jpg,.png,.pdf,.doc,.docx" required>
                                 <button type="button" class="input-group-text removeFile bg--danger border--danger"><i class="fas fa-times"></i></button>
                             </div>
                         </div>

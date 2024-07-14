@@ -4,6 +4,7 @@
     <option name="directories">
       <list>
         <option value="$PROJECT_DIR$/core/tests" />
+        <option value="$PROJECT_DIR$/old-folder/core/tests" />
       </list>
     </option>
   </component>

@@ -84,7 +84,7 @@
       $(this).toggleClass('active');
       $('.overlay').toggleClass('active');
       $('.menu').toggleClass('active');
-      if($('.menu').hasClass('active')) {
+      if ($('.menu').hasClass('active')) {
         $('.header-wrapper').css('position', 'initial')
       } else {
         $('.header-wrapper').css('position', 'relative')
@@ -129,14 +129,14 @@
     $('.custom-tab ul.tab-menu li').on('mouseover', function (g) {
       var tab = $(this).closest('.custom-tab'),
         index = $(this).closest('li').index();
-        tab.find('li').siblings('li').removeClass('active');
+      tab.find('li').siblings('li').removeClass('active');
       $(this).closest('li').addClass('active');
       tab.find('.tab-area').find('div.tab-item').not('div.tab-item:eq(' + index + ')').hide();
       tab.find('.tab-area').find('div.tab-item:eq(' + index + ')').show();
       g.preventDefault();
     });
-    $('.header-search-bar').on('click', function() {
-      if($(this).hasClass('active')) {
+    $('.header-search-bar').on('click', function () {
+      if ($(this).hasClass('active')) {
         $(this).removeClass('active')
         $(this).html('<i class="las la-search"></i>')
         $('.header-search-form').hide(300)
@@ -146,11 +146,11 @@
         $('.header-search-form').show(300)
       }
     })
-    $('.dashboard-menu-open').on('click', function() {
-        $('.dashboard-menu, .overlay').addClass('active')
+    $('.dashboard-menu-open').on('click', function () {
+      $('.dashboard-menu, .overlay').addClass('active')
     })
-    $('.side-sidebar-close-btn').on('click', function() {
-        $('.dashboard-menu, .overlay').removeClass('active')
+    $('.side-sidebar-close-btn').on('click', function () {
+      $('.dashboard-menu, .overlay').removeClass('active')
     })
     $('.sponsor-slider').owlCarousel({
       loop: true,
@@ -175,4 +175,27 @@
       }
     })
   });
+
+  /*==================== custom dropdown select js ====================*/
+  $('.custom--dropdown > .custom--dropdown__selected').on('click', function () {
+    $(this).parent().toggleClass('open');
+  });
+  $('.custom--dropdown > .dropdown-list > .dropdown-list__item').on('click', function () {
+    $('.custom--dropdown > .dropdown-list > .dropdown-list__item').removeClass('selected');
+    $(this).addClass('selected').parent().parent().removeClass('open').children('.custom--dropdown__selected').html($(this).html());
+  });
+  $(document).on('keyup', function (evt) {
+    if ((evt.keyCode || evt.which) === 27) {
+      $('.custom--dropdown').removeClass('open');
+    }
+  });
+  $(document).on('click', function (evt) {
+    if ($(evt.target).closest(".custom--dropdown > .custom--dropdown__selected").length === 0) {
+      $('.custom--dropdown').removeClass('open');
+    }
+  });
+
+  /*=============== custom dropdown select js end =================*/
+
+
 })(jQuery);

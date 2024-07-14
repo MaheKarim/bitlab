@@ -12,8 +12,8 @@
         <div class="mb-2">
             @php echo $customCaptcha @endphp
         </div>
-        <label class="form-label">@lang('Captcha')</label>
-        <input type="text" name="captcha" class="form-control form--control" required>
+        <label class="form-label text--white">@lang('Captcha')</label>
+        <input type="text" name="captcha" class="form--control-2" required>
     </div>
 @endif
 @if($googleCaptcha)

@@ -66,11 +66,50 @@
                 </ul>
                 <div class="d-flex flex-wrap align-items-center justify-content-end ms-lg-0 ms-auto">
                     <div class="header-lang">
-                        <select class="langSel">
+                        {{-- <select class="langSel">
                             @foreach($language as $item)
                                 <option value="{{$item->code}}" @if(session('lang') == $item->code) selected  @endif>{{ __($item->name) }}</option>
                             @endforeach
-                        </select>
+                        </select> --}}
+                        <div class="custom--dropdown">
+                            <div class="custom--dropdown__selected dropdown-list__item">
+                                <div class="thumb">
+                                    <img src="https://script.viserlab.com/visertrade/assets/images/language/66535f59bd4c91716739929.png"
+                                        alt="img">
+                                </div>
+                                <span class="text"> English </span>
+                            </div>
+                            <ul class="dropdown-list">
+                                <li class="dropdown-list__item " data-value="en">
+                                    <a href="https://script.viserlab.com/visertrade/change/en" class="thumb">
+                                        <img src="https://script.viserlab.com/visertrade/assets/images/language/66535f59bd4c91716739929.png"
+                                            alt="image">
+                                    </a>
+                                    <span class="text"> English </span>
+                                </li>
+                                <li class="dropdown-list__item " data-value="hi">
+                                    <a href="https://script.viserlab.com/visertrade/change/hi" class="thumb">
+                                        <img src="https://script.viserlab.com/visertrade/assets/images/language/66535f47d108b1716739911.png"
+                                            alt="image">
+                                    </a>
+                                    <span class="text"> Hindi </span>
+                                </li>
+                                <li class="dropdown-list__item " data-value="bn">
+                                    <a href="https://script.viserlab.com/visertrade/change/bn" class="thumb">
+                                        <img src="https://script.viserlab.com/visertrade/assets/images/language/66535f22aab011716739874.png"
+                                            alt="image">
+                                    </a>
+                                    <span class="text"> Bangla </span>
+                                </li>
+                                <li class="dropdown-list__item " data-value="es">
+                                    <a href="https://script.viserlab.com/visertrade/change/es" class="thumb">
+                                        <img src="https://script.viserlab.com/visertrade/assets/images/language/66535f3320a351716739891.png"
+                                            alt="image">
+                                    </a>
+                                    <span class="text"> Spanish </span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="right-area d-none d-md-flex">
                         @if(Auth::user())

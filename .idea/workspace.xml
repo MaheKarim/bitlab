@@ -4,22 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00dc46e4-91bc-40a5-83dd-d15227858af0" name="Changes" comment="">
+    <list default="true" id="59a92f95-5c87-4933-9fda-47334a54a506" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/frontend/blog/662a19077e0ad1714034951.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/frontend/blog/thumb_662a19077e0ad1714034951.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/authorization/2fa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/authorization/2fa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/authorization/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/authorization/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/authorization/sms.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/authorization/sms.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/passwords/code_verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/passwords/code_verify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/passwords/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/templates/basic/css/color.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/templates/basic/css/color.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/templates/basic/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/templates/basic/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/templates/basic/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/templates/basic/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/templates/basic/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/templates/basic/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/core/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app/Traits/SupportTicketManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/app/Traits/SupportTicketManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/partials/captcha.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/partials/captcha.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/cookie.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/cookie.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/layouts/frontend.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/layouts/frontend.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/partials/registration_disabled.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/partials/registration_disabled.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/partials/social_login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/partials/social_login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/sections/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/support_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/support/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/support/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/views/templates/basic/user/support/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/views/templates/basic/user/support/view.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/old-folder/core/composer.json" />
+    </option>
   </component>
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/core/composer.json</pharConfigPath>
@@ -83,6 +100,7 @@
       <path value="$PROJECT_DIR$/core/vendor/stella-maris/clock" />
       <path value="$PROJECT_DIR$/core/vendor/composer" />
       <path value="$PROJECT_DIR$/core/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/core/vendor/spatie/error-solutions" />
       <path value="$PROJECT_DIR$/core/vendor/psr/log" />
       <path value="$PROJECT_DIR$/core/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/core/vendor/psr/http-factory" />
@@ -183,13 +201,167 @@
       <path value="$PROJECT_DIR$/core/vendor/coingate/coingate-php" />
       <path value="$PROJECT_DIR$/core/vendor/symfony/yaml" />
       <path value="$PROJECT_DIR$/core/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/core/vendor/spatie/error-solutions" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/mailjet/mailjet-apiv3-php" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/laminas/laminas-diactoros" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/laramin/utility" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/laravel/pint" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/laravel/prompts" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/laravel/sail" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/laravel/sanctum" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/coingate/coingate-php" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/razorpay/razorpay" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/composer" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sendgrid/php-http-client" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sendgrid/sendgrid" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/carbonphp/carbon-doctrine-types" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/fruitcake/php-cors" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/starkbank/ecdsa" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/guzzlehttp/uri-template" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/nunomaduro/termwind" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/messagebird/php-rest-api" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/authorizenet/authorizenet" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/btcpayserver/btcpayserver-greenfield-php" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/intervention/gif" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/stella-maris/clock" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/league/config" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/league/flysystem-local" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/mollie/laravel-mollie" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/mollie/mollie-api-php" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/google/apiclient" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/google/apiclient-services" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/spatie/laravel-ignition" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/stripe/stripe-php" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/twilio/sdk" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/vonage/client" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/vonage/client-core" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/vonage/nexmo-bridge" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/rmccue/requests" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/spatie/backtrace" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/spatie/error-solutions" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/spatie/flare-client-php" />
+      <path value="$PROJECT_DIR$/old-folder/core/vendor/spatie/ignition" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="2ixpnZKdvL2e3uR5pgPjC3ClJeC" />
+  <component name="ProjectId" id="2jBusAeU5In8IPNPyH66KYunIPM" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -198,21 +370,25 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/laragon/www/bitlab",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/laragon/www/bitlab&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="PHPUnit.Main">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/core/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="old-folder\core" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner configuration_file="$PROJECT_DIR$/old-folder/core/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
   </component>
@@ -227,15 +403,15 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="00dc46e4-91bc-40a5-83dd-d15227858af0" name="Changes" comment="" />
-      <created>1720442249562</created>
+      <changelist id="59a92f95-5c87-4933-9fda-47334a54a506" name="Changes" comment="" />
+      <created>1720872995694</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1720442249562</updated>
-      <workItem from="1720442250577" duration="6150000" />
-      <workItem from="1720502135789" duration="40000" />
-      <workItem from="1720606874722" duration="10617000" />
-      <workItem from="1720621474748" duration="4012000" />
+      <updated>1720872995694</updated>
+      <workItem from="1720872996696" duration="7507000" />
+      <workItem from="1720938445549" duration="388000" />
+      <workItem from="1720940739674" duration="35000" />
+      <workItem from="1720940800310" duration="18000" />
     </task>
     <servers />
   </component>

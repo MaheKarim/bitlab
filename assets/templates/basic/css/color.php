@@ -37,8 +37,8 @@ if (!$secondColor OR !checkhexcolor2($secondColor)) {
     border-color: <?php echo $color; ?>fe;
 }
 
-.post__share li a i, *::selection, .header-top, .header-wrapper .right-area .cmn--btn, .cmn--btn, .feature-item .subtitle::before, .custom-tab-menu .tab-menu li.active .service-icon span, .section__cate::before, .section__cate::after, .faq__item.open .faq__title .right--icon::before, .footer-wrapper .footer-widget .title::after, .scrollToTop, button.cmn--btn:hover, .contact__item:hover .contact__icon, .account__section-wrapper .account__section-content .section__header .section__title::after, .dashboard-item .dashboard-icon, .dashboard-item:hover, .cmn--table thead th, .custom--card button.form--control, .widget__ticket-title::after{
-    background: <?php echo $color; ?>;
+.post__share li a i, *::selection, .header-top, .header-wrapper .right-area .cmn--btn, .cmn--btn, .btn--base, .feature-item .subtitle::before, .custom-tab-menu .tab-menu li.active .service-icon span, .section__cate::before, .section__cate::after, .faq__item.open .faq__title .right--icon::before, .footer-wrapper .footer-widget .title::after, .scrollToTop, button.cmn--btn:hover, .contact__item:hover .contact__icon, .account__section-wrapper .account__section-content .section__header .section__title::after, .dashboard-item .dashboard-icon, .dashboard-item:hover, .cmn--table thead th, .custom--card button.form--control, .widget__ticket-title::after{
+    background: <?php echo $color; ?> !important;
 }
 
 .header-section.active .header-bottom, .footer-middle, .preloader{
@@ -96,12 +96,12 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover , .featur
     border-color: <?php echo $color; ?>;
 }
 
-.form--control-2:focus {
-    border-color: <?php echo $color; ?>;
+.form--control-2:focus, .form--control:focus {
+    border-color: <?php echo $color; ?> !important;
 }
 
 .btn--primary, .badge--primary, .bg--primary{
-    background: <?php echo $color; ?>;
+    background: <?php echo $color; ?> !important;
 }
 
 .page-item.active .page-link {

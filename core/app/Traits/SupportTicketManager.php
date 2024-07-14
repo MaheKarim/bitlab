@@ -9,6 +9,7 @@ use App\Models\SupportMessage;
 use App\Models\SupportTicket;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 trait SupportTicketManager
@@ -199,8 +200,11 @@ trait SupportTicketManager
                 ]
             ]);
         }
-
-        return view("Template::$this->userType" . '.support.view', compact('myTicket', 'messages', 'pageTitle', 'user', 'layout'));
+        if (Auth::user()) {
+            return view("Template::$this->userType" . '.support.view', compact('myTicket', 'messages', 'pageTitle', 'user', 'layout'));
+        } else{
+            return view('Template::support_view', compact('myTicket', 'messages', 'pageTitle', 'user', 'layout'));
+        }
     }
 
 
