@@ -1,7 +1,6 @@
 @extends($activeTemplate.'layouts.master')
 @section('content')
     <div class="col-xl-9">
-
         <div class="mb-4">
             <div class="row g-4">
                 <div class="col-md-8">

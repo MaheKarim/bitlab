@@ -46,7 +46,7 @@
 
 @stack('script-lib')
 
-<script src="{{asset($activeTemplateTrue.'js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/global/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/magnific-popup.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/rafcounter.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/owl.min.js')}}"></script>

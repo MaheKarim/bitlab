@@ -26,14 +26,14 @@
                     </div>
                     <form class="account--form row g-4" action="{{ route('user.password.verify.code') }}" method="POST">
                         @csrf
-                        <p class="verification-text">@lang('A 6 digit verification code sent to your email address') :  {{ showEmailAddress($email) }}</p>
+                        <p class="verification-text text--white">@lang('A 6 digit verification code sent to your email address') :  {{ showEmailAddress($email) }}</p>
                         <input type="hidden" name="email" value="{{ $email }}">
                         @include($activeTemplate.'partials.verification_code')
                         <div class="form-group">
                             <button type="submit" class="btn btn--base w-100">@lang('Submit')</button>
                         </div>
                         <div class="form-group">
-                            @lang('Please check including your Junk/Spam Folder. if not found, you can')
+                           <p class="text--white"> @lang('Please check including your Junk/Spam Folder. if not found, you can') </p>
                             <a href="{{ route('user.password.request') }}">@lang('Try to send again')</a>
                         </div>
                     </form>

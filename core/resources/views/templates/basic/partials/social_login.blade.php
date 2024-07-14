@@ -40,12 +40,12 @@
 @push('style')
     <style>
         .social-login-btn {
-            border: 1px solid #dddddd54 !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
             color: #fff !important;
         }
 
         .social-login-btn:hover {
-            border: 1px solid #dddddd54 !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
             color: #f2f2f2;
         }
 
@@ -68,7 +68,7 @@
             position: absolute;
             height: 1px;
             width: 100%;
-            background-color: #dddddd54;
+            background-color: rgba(255, 255, 255, 0.2);
             top: 50%;
             left: 0;
             z-index: -1;

@@ -27,14 +27,14 @@
                     </div>
                     <form class="account--form row g-4" method="POST" action="{{route('user.verify.mobile')}}">
                         @csrf
-                        <p class="verification-text">@lang('A 6 digit verification code sent to your mobile number') :
+                        <p class="verification-text text--white">@lang('A 6 digit verification code sent to your mobile number') :
                             +{{ showMobileNumber(auth()->user()->mobileNumber) }}</p>
                         @include($activeTemplate.'partials.verification_code')
                         <div class="mb-3">
                             <button type="submit" class="btn btn--base w-100">@lang('Submit')</button>
                         </div>
                         <div class="form-group">
-                            <p>
+                            <p class="text--white">
                                 @lang('If you don\'t get any code'), <span class="countdown-wrapper">@lang('try again after') <span
                                         id="countdown" class="fw-bold">--</span> @lang('seconds')</span> <a
                                     href="{{route('user.send.verify.code', 'sms')}}"

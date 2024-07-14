@@ -22,12 +22,12 @@
                         </a>
                     </div>
                     <div class="section__header text--white">
-                        <h6 class="section__title mb-0">@lang('Please Verify Your Email to Get Access')</h6>
+                        <h6 class="section__title mb-0 text--white">@lang('Please Verify Your Email to Get Access')</h6>
                     </div>
                     <form class="account--form row g-4" method="POST" action="{{route('user.verify.email')}}">
                         @csrf
 
-                        <p class="verification-text">@lang('A 6 digit verification code sent to your email address'):  {{ showEmailAddress(auth()->user()->email) }}</p>
+                        <p class="verification-text text--white">@lang('A 6 digit verification code sent to your email address'):  {{ showEmailAddress(auth()->user()->email) }}</p>
 
                         @include($activeTemplate.'partials.verification_code')
 
@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <p>
+                            <p class="text--white">
                                 @lang('If you don\'t get any code'), <span class="countdown-wrapper">@lang('try again after') <span id="countdown" class="fw-bold">--</span> @lang('seconds')</span> <a href="{{route('user.send.verify.code', 'email')}}" class="try-again-link d-none"> @lang('Try again')</a>
                             </p>
                             <a href="{{ route('user.logout') }}">@lang('Logout')</a>
