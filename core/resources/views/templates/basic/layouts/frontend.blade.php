@@ -99,17 +99,43 @@
             }
         });
 
-        $('.cookie-btn').on('click', function(){
-            $.ajax({
-                method:'get',
-                url:'{{ route("cookie.accept") }}',
-                success:function(response){
-                    if(response.success){
-                        $('.cookie-policy').remove();
-                        notify('success', response.message);
-                    }
-                }
+        $(".langSel").on("change", function () {
+            window.location.href = "{{route('home')}}/change/" + $(this).val();
+        });
+
+        $('.policy').on('click',function(){
+            $.get('{{route('cookie.accept')}}', function(response){
+                $('.cookies-card').addClass('d-none');
             });
+        });
+
+        setTimeout(function(){
+            $('.cookies-card').removeClass('hide')
+        },2000);
+
+        var inputElements = $('[type=text],select,textarea');
+        $.each(inputElements, function (index, element) {
+            element = $(element);
+            element.closest('.form-group').find('label').attr('for',element.attr('name'));
+            element.attr('id',element.attr('name'))
+        });
+
+        $.each($('input, select, textarea'), function (i, element) {
+            var elementType = $(element);
+            if(elementType.attr('type') != 'checkbox'){
+                if (element.hasAttribute('required')) {
+                    $(element).closest('.form-group').find('label').addClass('required');
+                }
+            }
+        });
+
+        let disableSubmission = false;
+        $('.disableSubmission').on('submit',function(e){
+            if (disableSubmission) {
+                e.preventDefault()
+            }else{
+                disableSubmission = true;
+            }
         });
 
     })(jQuery);

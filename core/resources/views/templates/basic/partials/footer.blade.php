@@ -60,7 +60,7 @@
                     <a href="{{ route('home') }}"><img src="{{getImage(getFilePath('logoIcon') . '/logo.png')}}" alt="@lang('logo')"></a>
                 </div>
                 <div class="cont text-white">
-                    {{ __(@$footer->data_values->website_footer) }}
+                    <p class="text-white">@lang('Copyright') &copy; {{ date('Y') }} <a href="{{ route('home') }}">{{ __(gs('site_name')) }}</a>. @lang(__(@$footer->data_values->website_footer) )</p>
                 </div>
             </div>
         </div>

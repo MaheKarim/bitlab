@@ -1,6 +1,5 @@
 @extends($activeTemplate.'layouts.master')
 @section('content')
-
     <div class="col-xl-9">
         <div class="row justify-content-center g-4">
             <div class="col-lg-6">
@@ -84,7 +83,7 @@
                 </div>
             </div>
         </div>
-
+        <div class="notice"></div>
         <!-- Table -->
         <div class="pt-60">
             <h5 class="d-title">@lang('Latest Transaction')</h5>
